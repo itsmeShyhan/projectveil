@@ -14,9 +14,9 @@ import cv2 as cv
 # from keras.applications.resnet50 import ResNet50
 import pickle
 import tensorflow as tf
-import numpy as np
-from matplotlib import pyplot as plt
-import os
+# import numpy as np
+# from matplotlib import pyplot as plt
+# import os
 
 model = pickle.load(open('imageclassifierConv8e20b64.pkl', 'rb'))
 
@@ -29,32 +29,33 @@ def hello_word():
 
 @app.route('/', methods=['POST'])
 def predict():
-    try:
-        imagefile= request.files['imagefile']
-        image_path = "./images/" + imagefile.filename
-        imagefile.save(image_path)
+    # try:
+    #     imagefile= request.files['imagefile']
+    #     image_path = "./images/" + imagefile.filename
+    #     imagefile.save(image_path)
 
-        img = cv.imread(image_path)
-        resize = tf.image.resize(img, (256,256))
-        # plt.imshow(resize.numpy().astype(int))
-        # plt.show()
+    #     img = cv.imread(image_path)
+    #     resize = tf.image.resize(img, (256,256))
+    #     # plt.imshow(resize.numpy().astype(int))
+    #     # plt.show()
 
-        yhat = model.predict(np.expand_dims(resize/255, 0))
-        try:
-            os.remove(image_path)
-            print("Image successfully deletec")
-        except:
-            print("Error while removing image")
-            return "Error has occurred while safely deleting your image"
+    #     yhat = model.predict(np.expand_dims(resize/255, 0))
+    #     try:
+    #         os.remove(image_path)
+    #         print("Image successfully deletec")
+    #     except:
+    #         print("Error while removing image")
+    #         return "Error has occurred while safely deleting your image"
         
-        if yhat > 0.5:
-            return render_template('index.html', prediction='Predicted class is Real')
-        else:
-            return render_template('index.html', prediction='Predicted class is Fake')
+    #     if yhat > 0.5:
+    #         return render_template('index.html', prediction='Predicted class is Real')
+    #     else:
+    #         return render_template('index.html', prediction='Predicted class is Fake')
         
-    except:
-        print("Error has occurred")
-        return render_template('index.html', prediction='No image is selected')
+    # except:
+    #     print("Error has occurred")
+    #     return render_template('index.html', prediction='No image is selected')
+        return "aew"
         
 
 
