@@ -53,5 +53,4 @@ opencv-python
 tensorflow==2.19.0
 numpy 
 matplotlib
-pickle
 python==3.9
