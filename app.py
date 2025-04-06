@@ -23,11 +23,11 @@ model = pickle.load(open('imageclassifierConv8e20b64.pkl', 'rb'))
 app = Flask(__name__)
 # model = ResNet50()
 
-@app.route('/test', methods=['GET'])
+@app.route('/', methods=['GET'])
 def hello_word():
     return render_template('index.html')
 
-@app.route('/test', methods=['POST'])
+@app.route('/', methods=['POST'])
 def predict():
     try:
         imagefile= request.files['imagefile']
