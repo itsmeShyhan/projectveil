@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 
-import cv2 as cv
+# import cv2 as cv
 
 # cv.read
 # from keras.preprocessing import image_dataset
