@@ -12,13 +12,13 @@ from flask import Flask, render_template, request
 # from keras.applications.vgg16 import decode_predictions
 # from keras.applications.vgg16 import VGG16
 # from keras.applications.resnet50 import ResNet50
-import pickle
+# import pickle
 import tensorflow as tf
 # import numpy as np
 # from matplotlib import pyplot as plt
 # import os
 
-model = pickle.load(open('imageclassifierConv8e20b64.pkl', 'rb'))
+# model = pickle.load(open('imageclassifierConv8e20b64.pkl', 'rb'))
 
 app = Flask(__name__)
 # model = ResNet50()
